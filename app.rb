@@ -9,28 +9,19 @@ class App < Sinatra::Base
 
   # This is a sample dynamic route.
   get "/hello/:name" do
-    @user_name = params[:name]
+    @user_name = params[:name] #params is a variable that gives you access to the hash name
     "Hello #{@user_name}!"
   end
 
-  # Code your final two routes here:
   get '/goodbye/:name' do
-    @name = params[:name]
-    "Goodbye, #{@name}."
+    @user_name = params[:name]
+    "Goodbye, #{@user_name}."
   end
 
-  get "multiply/:num1/:num2" do 
-    @product = params[:num1].to_s * params[num2].to_s
-    "#{@product}"
+  get '/multiply/:num1/:num2' do 
+    @total = params[:num1].to_i * params[:num2].to_i
+    "#{@total}"
   end
 
-  get "/goodbye/:name" do
-    @name = params[:name]
-    "Goodbye, #{@name}."
-  end
-
-  get "/multiply/:num1/:num2" do
-    @product = params[:num1].to_i * params[:num2].to_i
-    "#{@product}"
-  end
+ 
 end
